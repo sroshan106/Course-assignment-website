@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+<a href="{% url 'users:Student-Signup' %}">Student-Signup</a>
+<a href="{% url 'users:Teacher-Signup' %}">Student-Signup</a>
+<a href="{% url 'users:login' %}">Login</a>
+<a href="{% url 'users:logout' %}">Logout</a>
+<h3>Welcome to Tester</h3>
+{% for ex in exams %}
+    <h4><a href="{{ex.get_abs_url}}">{{ex.Name}}</a></h4>
+{% empty %}
+<h4>There are no examination forms</h4>
+{% endfor %}
+</body>
+</html>

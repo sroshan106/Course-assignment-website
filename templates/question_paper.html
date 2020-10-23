@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam Paper</title>
+</head>
+<body>
+<h1>{{exam.Name}}</h1>
+{% for question in exam.questions.all %}
+    <h3>{{question.ques}}</h3>
+    <form method="post">
+        {% csrf_token %}
+        <h5>{{question.option1}}</h5>
+        <input type="checkbox" value="{{question.option1}}" name="option1">
+        <h5>{{question.option2}}</h5>
+        <input type="checkbox" value="{{question.option2}}" name="option2">
+        <h5>{{question.option3}}</h5>
+        <input type="checkbox" value="{{question.option3}}" name="option3">
+        <h5>{{question.option4}}</h5>
+        <input type="checkbox" value="{{question.option4}}" name="option4">
+        <input type="hidden" value="{{question.slug}}" name="question_slug">
+        <br>
+        <br>
+        <input type="submit" >
+
+    </form>
+{% endfor %}
+</body>
+</html>
